@@ -1,6 +1,7 @@
 import React from "react";
 import authStore from "../../Stores/authStore";
 import { useState } from "react";
+
 import {
   Box,
   Text,
@@ -13,6 +14,7 @@ import {
   Center,
   Link,
 } from "native-base";
+import { observer } from "mobx-react";
 
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
@@ -84,4 +86,4 @@ const Signin = ({ navigation }) => {
   );
 };
 
-export default Signin;
+export default observer(Signin);
