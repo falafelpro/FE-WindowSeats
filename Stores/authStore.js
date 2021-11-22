@@ -24,7 +24,7 @@ class AuthStore {
     try {
       const response = await instance.post("/signup", user);
       this.setUser(response.data.token);
-      //   navigation.navigate("Home");
+      navigation.navigate("Welcome");
       console.log("authStore -> signup -> response.data", response.data);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
@@ -35,18 +35,19 @@ class AuthStore {
     try {
       const response = await instance.post("/signin", user);
       this.setUser(response.data.token);
-      //   navigation.navigate("Home");
+      navigation.navigate("Welcome");
       console.log("authStore -> signin -> response.data", response.data);
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
     }
   };
 
-  logout = async () => {
+  logout = async (navigation) => {
     try {
       delete instance.defaults.headers.common.Authorization;
       await AsyncStorage.removeItem("myToken");
       this.user = null;
+      navigation.navigate("Signin");
     } catch (error) {
       console.log(error);
     }
