@@ -14,6 +14,10 @@ const TripList = ({ navigation }) => {
   return (
     <View>
       <Text> Welcome to your Window Seat {authStore.user?.username} </Text>
+      {/* make sure to send the navigator so you can navigate back to triplist */}
+      <Button onPress={() => navigation.navigate("CreateTrip")}>
+        Create A Trip
+      </Button>
       <View>{tripList}</View>
       <Button onPress={() => authStore.logout(navigation)}>Logout</Button>
     </View>
