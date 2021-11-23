@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { instance } from "./instance";
+import { baseURL, instance } from "./instance";
 
 class ProfileStore {
   constructor() {
@@ -17,6 +17,17 @@ class ProfileStore {
       this.isLoading = false;
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  updateProfiles = async (updatedProfile, profileId) => {
+    try {
+      const formData = new FormData();
+      for (const key in updatedProfile)
+        formData.append(key, updatedProfile[key]);
+      const res = await instance.put(`/profiles/${profileId}`);
+    } catch (error) {
+      console.log("ProfileStore -> updateProfile -> error", error);
     }
   };
 }

@@ -1,13 +1,16 @@
 import { Text, Image, View } from "react-native";
 import React from "react";
 import profileStore from "../../Stores/profileStore";
-import { Spinner } from "native-base";
+import { Button, Spinner } from "native-base";
 import { baseURL } from "../../Stores/instance";
+import ProfileUpdate from "./ProfileUpdate";
+import { NavigationContainer } from "@react-navigation/native";
 
-const ProfileDetail = ({ route }) => {
+const ProfileDetail = ({ route, navigation }) => {
   if (profileStore.isLoading) return <Spinner />;
 
   const profile = route.params.profile;
+
   return (
     <View>
       <Image
@@ -15,6 +18,15 @@ const ProfileDetail = ({ route }) => {
         style={{ width: 100, height: 100 }}
       />
       <Text>{profile.description}</Text>
+      <Button
+        onPress={() => {
+          navigation.navigate("ProfileUpdate");
+
+          <ProfileUpdate oldProfile={profile} />;
+        }}
+      >
+        Update Profile
+      </Button>
     </View>
   );
 };

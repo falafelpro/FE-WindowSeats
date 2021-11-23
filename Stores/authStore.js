@@ -24,7 +24,7 @@ class AuthStore {
     try {
       const response = await instance.post("/signup", user);
       this.setUser(response.data.token);
-      navigation.navigate("Welcome");
+      navigation.navigate("TripList");
       console.log("authStore -> signup -> response.data", response.data);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
@@ -35,7 +35,7 @@ class AuthStore {
     try {
       const response = await instance.post("/signin", user);
       this.setUser(response.data.token);
-      navigation.navigate("Welcome");
+      navigation.navigate("TripList");
       console.log("authStore -> signin -> response.data", response.data);
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);

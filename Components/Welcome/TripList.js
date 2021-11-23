@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Button, VStack } from "native-base";
 import authStore from "../../Stores/authStore";
-// import { observer } from "mobx-react";
+import { observer } from "mobx-react";
 import TripItem from "./TripItem";
 import tripStore from "../../Stores/tripStore";
 
@@ -20,4 +20,4 @@ const TripList = ({ navigation }) => {
   );
 };
 
-export default TripList;
+export default observer(TripList);
