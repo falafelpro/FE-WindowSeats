@@ -12,15 +12,19 @@ import {
   Center,
   Link,
 } from "native-base";
+import { observer } from "mobx-react";
 
-const ProfileUpdate = ({ oldProfile, navigation }) => {
+const ProfileUpdate = ({ navigation, route }) => {
+  const oldProfile = route.params.oldProfile;
   const [profile, setProfile] = useState({
     description: oldProfile.description,
     image: oldProfile.image,
   });
+  console.log(oldProfile);
+  console.log(profile);
 
   const handleSubmit = async () => {
-    await profileStore.updateProfiles(profile, navigation);
+    await profileStore.updateProfiles(profile, oldProfile._id);
   };
 
   return (
@@ -60,7 +64,6 @@ const ProfileUpdate = ({ oldProfile, navigation }) => {
           <FormControl>
             <FormControl.Label>Upload your image</FormControl.Label>
             <Input
-              type="password"
               onChangeText={(image) => setProfile({ ...profile, image })}
             />
           </FormControl>
@@ -74,4 +77,4 @@ const ProfileUpdate = ({ oldProfile, navigation }) => {
   );
 };
 
-export default ProfileUpdate;
+export default observer(ProfileUpdate);

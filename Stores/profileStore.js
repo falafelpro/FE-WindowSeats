@@ -25,7 +25,7 @@ class ProfileStore {
       const formData = new FormData();
       for (const key in updatedProfile)
         formData.append(key, updatedProfile[key]);
-      const res = await instance.put(`/profiles/${profileId}`);
+      const res = await instance.put(`/profiles/${profileId}`, updatedProfile);
     } catch (error) {
       console.log("ProfileStore -> updateProfile -> error", error);
     }

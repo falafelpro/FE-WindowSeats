@@ -2,14 +2,14 @@ import { Text, Image, View } from "react-native";
 import React from "react";
 import profileStore from "../../Stores/profileStore";
 import { Button, Spinner } from "native-base";
-import { baseURL } from "../../Stores/instance";
 import ProfileUpdate from "./ProfileUpdate";
-import { NavigationContainer } from "@react-navigation/native";
+import { observer } from "mobx-react";
 
 const ProfileDetail = ({ route, navigation }) => {
   if (profileStore.isLoading) return <Spinner />;
 
   const profile = route.params.profile;
+  console.log(profile);
 
   return (
     <View>
@@ -20,9 +20,7 @@ const ProfileDetail = ({ route, navigation }) => {
       <Text>{profile.description}</Text>
       <Button
         onPress={() => {
-          navigation.navigate("ProfileUpdate");
-
-          <ProfileUpdate oldProfile={profile} />;
+          navigation.navigate("ProfileUpdate", { oldProfile: profile });
         }}
       >
         Update Profile
@@ -30,4 +28,4 @@ const ProfileDetail = ({ route, navigation }) => {
     </View>
   );
 };
-export default ProfileDetail;
+export default observer(ProfileDetail);
