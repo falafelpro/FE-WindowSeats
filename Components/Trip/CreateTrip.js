@@ -13,7 +13,8 @@ import {
   Link,
 } from "native-base";
 import tripStore from "../../Stores/tripStore";
-const CreateTrip = () => {
+import { NavigationContainer } from "@react-navigation/native";
+const CreateTrip = ({ route, navigation }) => {
   const [trip, setTrip] = useState({
     title: "",
     description: "",
@@ -40,7 +41,7 @@ const CreateTrip = () => {
             color: "warmGray.50",
           }}
         >
-          Sign in now!
+          Create your trip:
         </Heading>
         <Heading
           mt="1"
@@ -76,7 +77,7 @@ const CreateTrip = () => {
           <FormControl>
             <FormControl.Label>Highlights</FormControl.Label>
             <Input
-              onChangeText={(highlights) => setTrip({ ...trip, highlightsr })}
+              onChangeText={(highlights) => setTrip({ ...trip, highlights })}
             />
           </FormControl>
           <FormControl>
