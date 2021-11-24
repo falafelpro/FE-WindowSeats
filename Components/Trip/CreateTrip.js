@@ -24,7 +24,7 @@ const CreateTrip = ({ route, navigation }) => {
     images: [],
     departure: "",
     destination: "",
-    rating: 0,
+    rating: Number,
     owner: null,
   });
   const handleCreate = async () => {
@@ -58,32 +58,46 @@ const CreateTrip = ({ route, navigation }) => {
         <VStack space={3} mt="5">
           <FormControl>
             <FormControl.Label>Title</FormControl.Label>
-            <Input onChangeText={(title) => setTrip({ ...trip, title })} />
+            <Input
+              placeholder="E.g. Dubai Girls Trip"
+              onChangeText={(title) => setTrip({ ...trip, title })}
+            />
           </FormControl>
           <FormControl>
             <FormControl.Label>Description</FormControl.Label>
             <Input
+              placeholder="E.g. It was an unforgettable weekend!"
               onChangeText={(description) => setTrip({ ...trip, description })}
             />
           </FormControl>
           <FormControl>
             <FormControl.Label>Purpose</FormControl.Label>
-            <Input onChangeText={(purpose) => setTrip({ ...trip, purpose })} />
+            <Input
+              placeholder="E.g. Fun"
+              onChangeText={(purpose) => setTrip({ ...trip, purpose })}
+            />
           </FormControl>
           <FormControl>
             <FormControl.Label>Season</FormControl.Label>
-            <Input onChangeText={(season) => setTrip({ ...trip, season })} />
+            <Input
+              placeholder="E.g. Summer"
+              onChangeText={(season) => setTrip({ ...trip, season })}
+            />
           </FormControl>
           <FormControl>
             <FormControl.Label>Highlights</FormControl.Label>
             <Input
+              placeholder="E.g. Shopping and food"
               onChangeText={(highlights) => setTrip({ ...trip, highlights })}
             />
           </FormControl>
           <FormControl>
-            <FormControl.Label>departure</FormControl.Label>
+            <FormControl.Label>Ratings</FormControl.Label>
             <Input
-              onChangeText={(departure) => setTrip({ ...trip, departure })}
+              placeholder="Enter number between 1 and 5"
+              type="number"
+              maxLength="5"
+              onChangeText={(rating) => setTrip({ ...trip, rating })}
             />
           </FormControl>
           <Button mt="2" colorScheme="indigo" onPress={handleCreate}>
