@@ -36,3 +36,4 @@ const TripDetail = ({ route, navigation }) => {
   );
 };
 export default observer(TripDetail);
+

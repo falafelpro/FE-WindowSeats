@@ -23,13 +23,10 @@ class TripStore {
     }
   };
 
-  createTrips = async (newTrip, navigation) => {
+  createTrips = async (newTrip) => {
     try {
       const response = await instance.post("/trips", newTrip);
-      navigation.navigate("CreateTrip");
       this.trips.push(response.data);
-
-      //this.loading = false;
     } catch (error) {
       console.log("ShopStore -> fetchShops -> error", error);
     }
