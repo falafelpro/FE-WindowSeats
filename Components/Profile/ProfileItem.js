@@ -6,9 +6,11 @@ import { Button } from "native-base";
 import { baseURL } from "../../Stores/instance";
 import ProfileUpdate from "./ProfileUpdate";
 import ProfileDetail from "./ProfileDetail";
+// REVIEW: Remove unused imports
 
 const ProfileItem = ({ profile, navigation }) => {
   console.log(profile);
+  // REVIEW: Remove console logs
 
   return (
     <View>

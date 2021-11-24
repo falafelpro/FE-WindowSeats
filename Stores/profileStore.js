@@ -25,6 +25,7 @@ class ProfileStore {
       const formData = new FormData();
       for (const key in updatedProfile)
         formData.append(key, updatedProfile[key]);
+      // REVIEW: You cannot send the ID in the URL, it's coming from the token. Fix here and in the BE
       const res = await instance.put(`/profiles/${profileId}`, updatedProfile);
     } catch (error) {
       console.log("ProfileStore -> updateProfile -> error", error);

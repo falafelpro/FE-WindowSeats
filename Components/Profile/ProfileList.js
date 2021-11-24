@@ -8,6 +8,7 @@ const ProfileList = ({ navigation }) => {
   const profileList = profileStore.profiles.map((profile) => (
     <ProfileItem profile={profile} key={profile._id} navigation={navigation} />
   ));
+  // REVIEW: Remove console logs
 
   console.log(profileStore.profiles);
 

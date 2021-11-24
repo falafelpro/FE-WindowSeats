@@ -14,6 +14,9 @@ import {
 } from "native-base";
 import tripStore from "../../Stores/tripStore";
 import { NavigationContainer } from "@react-navigation/native";
+// REVIEW: Remove unused imports
+
+// REVIEW: Correct naming: TripForm
 const CreateTrip = ({ route, navigation }) => {
   const [trip, setTrip] = useState({
     title: "",

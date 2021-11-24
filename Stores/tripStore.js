@@ -13,8 +13,10 @@ class TripStore {
   fetchTrips = async () => {
     try {
       const response = await instance.get("/trips");
+      // REVIEW: Remove console logs
       console.log(response.data);
       this.trips = response.data;
+      // REVIEW: Remove console logs
       console.log("hi" + this.trips);
 
       this.loading = false;
@@ -26,6 +28,8 @@ class TripStore {
   createTrips = async (newTrip, navigation) => {
     try {
       const response = await instance.post("/trips", newTrip);
+      // REVIEW: Why do you go back to the Create List? How about gpoing to the list opf trips?
+      // REVIEW: push then navigate
       navigation.navigate("CreateTrip");
       this.trips.push(response.data);
 
