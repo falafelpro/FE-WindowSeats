@@ -7,12 +7,14 @@ import ProfileDetail from "../Profile/ProfileDetail";
 import ProfileList from "../Profile/ProfileList";
 import ProfileUpdate from "../Profile/ProfileUpdate";
 import TripList from "../Welcome/TripList";
+import test from "../Trip/test";
 import TripDetail from "../Trip/TripDetail";
+
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
   return (
-    <Navigator initialRouteName="Signin">
+    <Navigator initialRouteName="Singin">
       <Screen name="Signup" component={Signup} />
       <Screen name="ProfileList" component={ProfileList} />
       <Screen name="ProfileDetail" component={ProfileDetail} />
@@ -21,6 +23,10 @@ const RootNavigator = () => {
       <Screen name="CreateTrip" component={CreateTrip} />
       <Screen name="TripDetail" component={TripDetail} />
       <Screen name="Signin" component={Signin} />
+
+      <Screen name="test" component={test} />
+      
+
     </Navigator>
   );
 };
