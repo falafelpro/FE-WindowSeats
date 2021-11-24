@@ -23,9 +23,10 @@ class TripStore {
     }
   };
 
-  createTrips = async (newTrip) => {
+  createTrips = async (newTrip, navigation) => {
     try {
       const response = await instance.post("/trips", newTrip);
+      navigation.navigate("CreateTrip");
       this.trips.push(response.data);
 
       //this.loading = false;
