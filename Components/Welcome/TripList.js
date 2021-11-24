@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { VStack, Button } from "native-base";
+import { Button } from "native-base";
 import authStore from "../../Stores/authStore";
 import { observer } from "mobx-react";
 import TripItem from "./TripItem";

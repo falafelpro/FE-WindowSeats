@@ -1,11 +1,7 @@
 import React from "react";
-
 import { Text, Image, View } from "react-native";
-
 import { Button } from "native-base";
 import { baseURL } from "../../Stores/instance";
-import ProfileUpdate from "./ProfileUpdate";
-import ProfileDetail from "./ProfileDetail";
 
 const ProfileItem = ({ profile, navigation }) => {
   console.log(profile);

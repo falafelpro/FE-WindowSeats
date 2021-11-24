@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-//rimport { View, Text } from "react-native";
+import { View, Text } from "react-native";
 import {
   Box,
-  Text,
   Heading,
   VStack,
   FormControl,
   Input,
   Button,
-  HStack,
   Center,
-  Link,
 } from "native-base";
 import tripStore from "../../Stores/tripStore";
-import { NavigationContainer } from "@react-navigation/native";
+
 const CreateTrip = ({ route, navigation }) => {
   const [trip, setTrip] = useState({
     title: "",
@@ -29,6 +26,7 @@ const CreateTrip = ({ route, navigation }) => {
   });
   const handleCreate = async () => {
     await tripStore.createTrips(trip);
+    navigation.navigate("TripList");
   };
   return (
     <Center>

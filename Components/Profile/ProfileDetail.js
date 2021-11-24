@@ -2,14 +2,11 @@ import { Text, Image, View } from "react-native";
 import React from "react";
 import profileStore from "../../Stores/profileStore";
 import { Button, Spinner } from "native-base";
-import ProfileUpdate from "./ProfileUpdate";
 import { observer } from "mobx-react";
 
 const ProfileDetail = ({ route, navigation }) => {
   if (profileStore.isLoading) return <Spinner />;
-
   const profile = route.params.profile;
-  console.log(profile);
 
   return (
     <View>

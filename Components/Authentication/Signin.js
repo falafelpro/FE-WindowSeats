@@ -14,7 +14,6 @@ import {
   Center,
   Link,
 } from "native-base";
-import { observer } from "mobx-react";
 
 const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
@@ -23,7 +22,8 @@ const Signin = ({ navigation }) => {
   });
 
   const handleSubmit = async () => {
-    await authStore.signin(user, navigation);
+    await authStore.signin(user);
+    navigation.navigate("TripList");
   };
 
   return (
@@ -86,4 +86,4 @@ const Signin = ({ navigation }) => {
   );
 };
 
-export default observer(Signin);
+export default Signin;
