@@ -1,30 +1,34 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  shopDetailWrapper: {
-    marginTop: 50,
+  tripDetailWrapper: {
+    marginTop: 20,
   },
-  shopDetailImage: {
+
+  tripDetailImage: {
     width: 150,
     height: 150,
   },
-  shopDetailTitle: {
+
+  tripDetailTitle: {
     fontWeight: "bold",
-    fontSize: 40,
+    fontSize: 30,
   },
-  cartButton: { marginRight: 10, color: "navy" },
+
   authContainer: {
-    flex: 1,
+    flex: 2,
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
-    paddingRight: 60,
-    paddingLeft: 60,
+    paddingRight: 30,
+    paddingLeft: 30,
   },
+
   authTitle: {
     fontSize: 24,
     marginBottom: 20,
   },
+
   authTextInput: {
     alignSelf: "stretch",
     textAlign: "left",
@@ -32,6 +36,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     borderBottomWidth: 1,
   },
+
   AuthOther: {
     marginTop: 15,
   },

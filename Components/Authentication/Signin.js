@@ -76,7 +76,7 @@ const Signin = ({ navigation }) => {
                 color: "warmGray.200",
               }}
             >
-              I'm a new user.{" "}
+              I'm a new user.
             </Text>
             <Link onPress={() => navigation.navigate("Signup")}>Sign Up</Link>
           </HStack>
