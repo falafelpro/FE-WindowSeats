@@ -28,6 +28,7 @@ class TripStore {
       const response = await instance.post("/trips", newTrip);
       navigation.navigate("CreateTrip");
       this.trips.push(response.data);
+      navigation.navigate("TripList");
       //this.loading = false;
     } catch (error) {
       console.log("tripStore -> createTrips -> error", error);

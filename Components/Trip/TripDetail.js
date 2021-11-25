@@ -10,10 +10,11 @@ const TripDetail = ({ route, navigation }) => {
   if (tripStore.isLoading) return <Spinner />;
 
   const trip = route.params.trip;
-  console.log(route);
-  console.log(trip);
+  //console.log(route);
+  //console.log(trip);
 
   return (
+
     <Center>
       <View style={styles.tripDetailWrapper}>
         <Text style={styles.tripDetailTitle}> {trip.title}</Text>
@@ -25,22 +26,14 @@ const TripDetail = ({ route, navigation }) => {
         <Text>Season: {trip.season}</Text>
         <Text>Highlights: {trip.highlights}</Text>
         <Text>Rate: {trip.rating}/5</Text>
-        <Button
-          style={styles.ButtonDesign}
-          onPress={() => {
-            navigation.navigate("UpdateTrip");
-          }}
-        >
-          Update Trip
-        </Button>
-        <Button
-          style={styles.ButtonDesign}
-          onPress={() => {
-            navigation.navigate("CreateTrip");
-          }}
-        >
-          Delete Trip
-        </Button>
+      <Button
+        onPress={() => {
+          navigation.navigate("ProfileDetail", { owner: trip.owner });
+        }}
+      >
+        Update Trip
+      </Button>
+      
       </View>
     </Center>
   );

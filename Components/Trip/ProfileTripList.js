@@ -3,30 +3,26 @@ import { View, Text } from "react-native";
 import { VStack, Button, Box } from "native-base";
 import authStore from "../../Stores/authStore";
 import { observer } from "mobx-react";
-import TripItem from "./TripItem";
+import TripItem from "../Welcome/TripItem";
 import tripStore from "../../Stores/tripStore";
 import styles from "../../styles";
 
 const TripList = ({ navigation, trips }) => {
-  let tripList = trips ? trips : tripStore.trips;
+  //let tripList = trips ? trips : tripStore.trips;
 
-  const newTransformedTripList = tripList.map((trip) => (
+  const newTransformedTripList = trips.map((trip) => (
     <TripItem trip={trip} key={trip._id} navigation={navigation} />
   ));
-  console.log(tripList);
+  //console.log(tripList);
   return (
     <View>
       <Box style={styles.authContainer}>
-        <Text style={styles.AuthOther}> Welcome to your </Text>
-        <Text style={styles.authTitle}>
-          Window Seat {authStore.user?.username}
-        </Text>
-        <Button onPress={() => navigation.navigate("CreateTrip")}>
-          Create Trip
-        </Button>
+        <Text>Welcome {authStore.user?.username} to my page </Text>
+        {/* <Text style={styles.authTitle}>
+           {authStore.user?.username}
+        </Text> */}
         <View>{newTransformedTripList} </View>
       </Box>
-      <Button onPress={() => authStore.logout(navigation)}>Logout</Button>
     </View>
   );
 };
