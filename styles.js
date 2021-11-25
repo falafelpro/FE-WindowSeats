@@ -1,3 +1,4 @@
+import { Center } from "native-base";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -22,6 +23,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingRight: 30,
     paddingLeft: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    textAlign: "center",
   },
 
   authTitle: {
@@ -39,6 +43,13 @@ const styles = StyleSheet.create({
 
   AuthOther: {
     marginTop: 15,
+    marginBottom: 10,
+  },
+
+  ButtonDesign: {
+    padding: 10,
+    marginTop: 15,
+    color: "navy",
   },
 });
 

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { View, Text } from "react-native";
 import {
@@ -12,7 +11,7 @@ import {
 } from "native-base";
 import tripStore from "../../Stores/tripStore";
 
-const CreateTrip = ({ route, navigation }) => {
+const CreateTrip = ({ route, navigation, props }) => {
   const [trip, setTrip] = useState({
     title: "",
     description: "",
@@ -23,7 +22,7 @@ const CreateTrip = ({ route, navigation }) => {
     departure: "",
     destination: "",
     rating: Number,
-    owner: null,
+    owner: "",
   });
   const handleCreate = async () => {
     await tripStore.createTrips(trip);
