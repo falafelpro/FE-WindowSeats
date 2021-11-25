@@ -10,11 +10,10 @@ import TripList from "../Welcome/TripList";
 import test from "../Trip/test";
 import TripDetail from "../Trip/TripDetail";
 
-
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
   return (
-    <Navigator initialRouteName="Singin">
+    <Navigator initialRouteName="Signin">
       <Screen name="Signup" component={Signup} />
       <Screen name="ProfileList" component={ProfileList} />
       <Screen name="ProfileDetail" component={ProfileDetail} />
@@ -25,8 +24,6 @@ const RootNavigator = () => {
       <Screen name="Signin" component={Signin} />
 
       <Screen name="test" component={test} />
-      
-
     </Navigator>
   );
 };

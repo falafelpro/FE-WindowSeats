@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import authStore from "../../Stores/authStore";
 import { View, Text } from "react-native";
 import {
   Box,
@@ -22,12 +22,13 @@ const CreateTrip = ({ route, navigation }) => {
     images: [],
     departure: "",
     destination: "",
-    rating: Number,
-    owner: null,
+    rating: 0,
+    owner: authStore.user._id,
   });
   const handleCreate = async () => {
-    await tripStore.createTrips(trip);
-    navigation.navigate("TripList");
+    //console.log(authStore.user);
+    //setTrip({ ...trip, owner: authStore.user._id });
+    await tripStore.createTrips(trip, navigation);
   };
   return (
     <Center>

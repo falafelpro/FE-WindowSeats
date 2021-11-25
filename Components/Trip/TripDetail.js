@@ -10,8 +10,8 @@ const TripDetail = ({ route, navigation }) => {
   if (tripStore.isLoading) return <Spinner />;
 
   const trip = route.params.trip;
-  console.log(route);
-  console.log(trip);
+  //console.log(route);
+  //console.log(trip);
 
   return (
     <View style={styles.tripDetailWrapper}>
@@ -27,7 +27,7 @@ const TripDetail = ({ route, navigation }) => {
       <Text>Rate: {trip.rating}/5</Text>
       <Button
         onPress={() => {
-          navigation.navigate("ProfileDetail");
+          navigation.navigate("ProfileDetail", { owner: trip.owner });
         }}
       >
         Update Trip
@@ -36,4 +36,3 @@ const TripDetail = ({ route, navigation }) => {
   );
 };
 export default observer(TripDetail);
-

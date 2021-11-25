@@ -4,7 +4,7 @@ import { Button } from "native-base";
 import { baseURL } from "../../Stores/instance";
 
 const ProfileItem = ({ profile, navigation }) => {
-  console.log(profile);
+  //console.log(profile);
 
   return (
     <View>

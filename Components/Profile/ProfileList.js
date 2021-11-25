@@ -9,7 +9,7 @@ const ProfileList = ({ navigation }) => {
     <ProfileItem profile={profile} key={profile._id} navigation={navigation} />
   ));
 
-  console.log(profileStore.profiles);
+  //console.log(profileStore.profiles);
 
   return <ScrollView>{profileList}</ScrollView>;
 };

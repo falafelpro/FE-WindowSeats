@@ -12,9 +12,11 @@ class AuthStore {
 
   setUser = async (token) => {
     try {
+      console.log(token);
       await AsyncStorage.setItem("myToken", token);
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       this.user = decode(token);
+      //console.log(this.user);
     } catch (error) {
       console.log(error);
     }
@@ -23,18 +25,20 @@ class AuthStore {
   signup = async (user) => {
     try {
       const response = await instance.post("/signup", user);
-      this.setUser(response.data.token);
+      this.setUser(response.data);
       console.log("authStore -> signup -> response.data", response.data);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
     }
   };
 
-  signin = async (user) => {
+  signin = async (user, navigation) => {
     try {
       const response = await instance.post("/signin", user);
-      this.setUser(response.data.token);
-
+      //console.log(response.data.token);
+      //console.log(response.data);
+      this.setUser(response.data);
+      navigation.navigate("TripList");
       console.log("authStore -> signin -> response.data", response.data);
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
@@ -59,10 +63,10 @@ class AuthStore {
       if (token) {
         const currentTime = Date.now(); // give us the current time
         const tempUser = decode(token);
-        if (tempUser.exp >= currentTime) {
-          this.setUser(token);
+        if (tempUser.exp * 1000 >= currentTime) {
+          return this.setUser(token);
         } else {
-          this.logout();
+          return this.logout();
         }
       }
     } catch (error) {
