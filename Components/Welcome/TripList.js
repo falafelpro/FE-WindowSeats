@@ -17,7 +17,7 @@ const TripList = ({ navigation, trips }) => {
   return (
     <View>
       <Box style={styles.authContainer}>
-        <Text>Welcome to your </Text>
+        <Text style={styles.AuthOther}> Welcome to your </Text>
         <Text style={styles.authTitle}>
           Window Seat {authStore.user?.username}
         </Text>
@@ -26,7 +26,7 @@ const TripList = ({ navigation, trips }) => {
         </Button>
         <View>{newTransformedTripList} </View>
       </Box>
-      <Button onPress={() => authStore.logout(navigation)}> Logout </Button>
+      <Button onPress={() => authStore.logout(navigation)}>Logout</Button>
     </View>
   );
 };

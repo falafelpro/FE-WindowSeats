@@ -12,7 +12,7 @@ import {
 } from "native-base";
 import tripStore from "../../Stores/tripStore";
 
-const CreateTrip = ({ route, navigation }) => {
+const CreateTrip = ({ route, navigation, props }) => {
   const [trip, setTrip] = useState({
     title: "",
     description: "",
@@ -24,6 +24,7 @@ const CreateTrip = ({ route, navigation }) => {
     destination: "",
     rating: 0,
     owner: authStore.user._id,
+
   });
   const handleCreate = async () => {
     //console.log(authStore.user);

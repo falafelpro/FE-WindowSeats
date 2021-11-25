@@ -19,20 +19,31 @@ class TripStore {
 
       this.loading = false;
     } catch (error) {
-      console.log("ShopStore -> fetchShops -> error", error);
+      console.log("tripStore -> fetchTrips -> error", error);
     }
   };
 
   createTrips = async (newTrip, navigation) => {
     try {
       const response = await instance.post("/trips", newTrip);
+      navigation.navigate("CreateTrip");
       this.trips.push(response.data);
       navigation.navigate("TripList");
+      //this.loading = false;
     } catch (error) {
-      console.log("ShopStore -> fetchShops -> error", error);
+      console.log("tripStore -> createTrips -> error", error);
     }
   };
 }
+
+// deleteTrips = async () => {
+//   try {
+//       const response = await instance.delete("/:tripId)
+
+//   } catch (error) {
+//     console.log("tripStore -> deleteTrips -> error, error");
+//   }
+// };
 
 const tripStore = new TripStore();
 tripStore.fetchTrips();
